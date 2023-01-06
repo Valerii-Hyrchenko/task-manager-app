@@ -1,0 +1,170 @@
+.toDo-list__form-container {
+    position: relative;
+}
+.toDo-list__form {
+    max-width: 450px;
+}
+.toDo-list__form-select {
+    cursor: pointer;
+    font-size: 20px;
+    width: 90px;
+}
+.toDo-list__form-select > p:first-child {
+    margin-bottom: 15px;
+}
+.toDo-list__form-select > p:last-child {
+    margin-bottom: 25px;
+}
+.toDo-list__form-input, .toDo-list__form-task-input {
+    display: block;
+    outline: none;
+    border: none;
+    padding: 12px 10px;
+    width: 385px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 16px;
+    background: #e0e0e0;
+    box-shadow: inset -5px 5px 10px #c7c7c7,
+                inset 5px -5px 10px #f9f9f9;
+}
+.toDo-list__form-input:focus, .toDo-list__form-task-input:focus {
+    box-shadow: 0px 0px 20px 7px rgba(255,255,255,1);
+}
+.toDo-list__form-input:not(:last-of-type), .toDo-list__form-task-input:not(:last-of-type) {
+    margin-bottom: 30px;
+}
+
+.toDo-list__form > label, .toDo-list__taskform-container > form > label {
+    display: block;
+    margin-left: 8px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color:rgb(84, 78, 78);
+}
+.toDo-list__form-checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+}
+.toDo-list__form-checkbox-container > p {
+    font-size: 14px;
+    font-weight: 600;
+}
+.toDo-list__form-checkbox-input {
+    width: 50px;
+    height: 25px;
+    opacity: 0;
+}
+.toDo-list__form-checkbox {
+    width: 60px;
+    height: 30px;
+    margin: 0 8px;
+    background: #d3d3d3;
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 9px 9px 29px #969696,
+               -9px -9px 29px #ffffff;
+}
+#submit-button {
+    margin-top: 30px;
+}
+.toDo-list__form-checkbox-label {
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    border-radius: 50px;
+    left: 5px;
+    top: 5px;
+    box-shadow: inset 3px 3px 10px #969696,
+                inset -3px -3px 5px #ffffffbd;
+    cursor: pointer;
+}
+  
+.toDo-list__form-checkbox > span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #0a100d;
+    margin: 5px;
+    border-radius: 50px;
+    font-size: 20px;
+    transition: all 0.3s ease-in;
+    position: absolute;
+    left: 0;
+    z-index: 2;
+}
+  
+.toDo-list__form-checkbox > span::after {
+    position: absolute;
+    top: 6px;
+    left: 4px;
+    transition-delay: 5s;
+}
+  
+.toDo-list__form-checkbox-input:checked ~ span {
+    left: 29px;
+    transition: 0.3s ease-in;
+    background: #f2bf32;
+    transform: rotate(220deg);
+}
+#tooltip_input_password, #tooltip_input_email, #tooltip_input_name {
+    font-size: 12px;
+    max-width: 320px;
+    color: red;
+}
+.modal-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.modal-window {
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 50%;
+    height: 150px;
+    border: transparent;
+    border-radius: 24px;
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    box-shadow:  6px 6px 9px #bebebe,
+                -6px -6px 9px #ffffff;
+}
+.modal-title {
+    text-align: center;
+    font-weight: 800;
+    padding: 30px 15px 10px;
+    color: #5c5b5b;
+}
+.modal-text-error {
+    font-size: 14px;
+    font-weight: 500;
+    color: red;
+    padding: 0 15px;
+}
+.button-modal-container > button {
+    width: 60px;
+    height: 30px;
+    margin: 20px auto 0;
+}
+
+@media (max-width: 1090px) {
+    .toDo-list__form-input, .toDo-list__form-task-input {
+        width: 450px;
+    }
+}
+@media (max-width: 650px) {
+    .toDo-list__form-input, .toDo-list__form-task-input {
+        width: 370px;
+    }
+}
+@media (max-width: 480px) {
+    .toDo-list__form-input, .toDo-list__form-task-input {
+        width: 320px;
+    }
+}
