@@ -21,7 +21,12 @@ class ModalWindow {
     buttonModal.addEventListener("click", () => {
       modalContainer.remove();
     });
-    document.querySelector(".toDo-list__form-container").append(modalContainer);
+    const form = document.querySelector(".toDo-list__form-container");
+    const generalAppContainer = document.querySelector(".toDo-list");
+
+    (form || generalAppContainer).append(modalContainer);
+
+    if (!form) window.classList.add("modal-window--cards");
   }
 }
 
@@ -34,12 +39,10 @@ export class ModalWindowError extends ModalWindow {
     super.renderWindow();
     document.getElementById("modal-title-message").innerText =
       "There was an error:";
-    for (let error in this.resultRequest) {
-      const textError = document.createElement("p");
-      textError.classList.add("modal-text-error");
-      textError.innerText = this.resultRequest[error];
-      document.getElementById("modal-text-message").append(textError);
-    }
+    const textError = document.createElement("p");
+    textError.classList.add("modal-text-error");
+    textError.innerText = this.resultRequest;
+    document.getElementById("modal-text-message").append(textError);
   }
 }
 

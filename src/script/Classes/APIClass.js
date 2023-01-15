@@ -30,8 +30,8 @@ class RequestApi {
         headers: headers,
         body: JSON.stringify(body),
       });
+      const resultRequest = await response.json();
       if (response.ok) {
-        const resultRequest = await response.json();
         if (resultRequest.token) {
           this.tokenAuthorization = resultRequest.token;
         }
@@ -43,17 +43,18 @@ class RequestApi {
           submitButton.removeAttribute("disabled");
         }
       } else {
-        const resultRequest = await response.json();
-        const errorMessage = new ModalWindowError(resultRequest);
-        errorMessage.renderWindowError();
         this.preloader(false);
         if (submitButton) {
           submitButton.removeAttribute("disabled");
         }
-        throw new Error(`There was an error code ${response.status}`);
+        for (let error in resultRequest) {
+          throw new Error(resultRequest[error]);
+        }
       }
     } catch (error) {
       this.preloader(false);
+      const errorMessage = new ModalWindowError(error.message);
+      errorMessage.renderWindowError();
       throw new Error(error.message);
     }
   };
@@ -79,6 +80,8 @@ class RequestApi {
       }
     } catch (error) {
       this.preloader(false);
+      const errorMessage = new ModalWindowError(error.message);
+      errorMessage.renderWindowError();
       throw new Error(error.message);
     }
   };
@@ -98,6 +101,8 @@ class RequestApi {
         throw new Error(`There was an error code ${response.status}`);
       }
     } catch (error) {
+      const errorMessage = new ModalWindowError(error.message);
+      errorMessage.renderWindowError();
       throw new Error(error.message);
     }
   };
@@ -118,6 +123,8 @@ class RequestApi {
         throw new Error(`There was an error code ${response.status}`);
       }
     } catch (error) {
+      const errorMessage = new ModalWindowError(error.message);
+      errorMessage.renderWindowError();
       throw new Error(error.message);
     }
   };
